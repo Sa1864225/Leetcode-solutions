@@ -1,0 +1,16 @@
+class Solution:
+    def halvesAreAlike(self, s: str) -> bool:
+        c1,c2=0,0
+        vow="aeiouAEIOU"
+        for i in range(len(s)//2):
+            if s[i] in vow:
+                
+                c1+=1
+        for i in range(len(s)//2,len(s)):
+            if s[i] in vow:
+                c2+=1
+                
+        print(c1,c2)
+        if c1==c2:
+            return True
+        return False
