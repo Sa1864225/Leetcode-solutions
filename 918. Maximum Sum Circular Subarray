@@ -1,0 +1,17 @@
+class Solution:
+    def maxSubarraySumCircular(self, nums: List[int]) -> int:
+        totalSum = sum(nums)
+
+        def maxSumSubarray(nums):
+            maxSum, prevSum = nums[0], nums[0]
+            for num in nums[1:]:
+                prevSum = max(num, prevSum+num)
+                maxSum = max(prevSum, maxSum)
+            return maxSum
+        
+        maxSubarrSum = maxSumSubarray(nums)
+        if maxSubarrSum < 0:
+            return maxSubarrSum
+        nums = [-1*num for num in nums]
+        minSubarrSum = maxSumSubarray(nums)
+        return max(maxSubarrSum, totalSum + minSubarrSum)
