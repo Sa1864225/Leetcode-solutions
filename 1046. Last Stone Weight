@@ -1,0 +1,11 @@
+class Solution:
+    def lastStoneWeight(self, stones: List[int]) -> int:
+        m1,m2=0,0
+        while len(stones)>1:
+            m1=max(stones)
+            stones.remove(m1)
+            m2=max(stones)
+            stones.remove(m2)
+            m1=m1-m2
+            stones.append(m1)
+        return stones[0]
