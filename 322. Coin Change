@@ -1,0 +1,16 @@
+class Solution(object):
+    def coinChange(self, coins, amount):
+        def solve(amt):
+            if amt < 0:
+                return float('inf')
+            if amt == 0:
+                return 0
+            if amt in memo:
+                return memo[amt]
+            ans = float('inf')
+            for c in coins:
+                ans = min(ans, 1 + solve(amt - c))
+            memo[amt] = ans
+            return ans
+        memo = {}
+        return solve(amount) if solve(amount) != float('inf') else -1
