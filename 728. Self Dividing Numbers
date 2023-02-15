@@ -1,0 +1,15 @@
+class Solution:
+    def selfDividingNumbers(self, left: int, right: int) -> List[int]:
+        ans=[]
+        for i in range(left,right+1):
+            if self.isdn(i)==True:
+                ans.append(i)
+        return ans
+    def isdn(self,n):
+        t=n
+        while t>0:
+            r=t%10
+            if r==0 or (n%r!=0):
+                return False
+            t//=10
+        return True
