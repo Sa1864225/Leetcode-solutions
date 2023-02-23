@@ -1,0 +1,15 @@
+class Solution:
+    def freqAlphabets(self, s: str) -> str:
+        i=len(s)-1
+        s1=""
+        while 1>0:
+            if i<0:
+                break
+            if s[i]=='#':
+                s1=chr(int(s[i-2:i])+96)+s1
+                i-=2
+            else:
+                s1=chr(int(s[i])+96)+s1
+            i-=1
+        return s1
+            
