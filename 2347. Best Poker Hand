@@ -1,0 +1,23 @@
+class Solution:
+    def bestHand(self, ranks: List[int], suits: List[str]) -> str:
+        c=0
+        for i in range(len(suits)-1):
+            if suits[i]==suits[i+1]:
+                c+=1
+        if c==len(suits)-1:
+            return 'Flush'
+        d={}
+        for i in ranks:
+            if i in d:
+                d[i]+=1
+            else:
+                d[i]=1
+        m=0
+        for i in d:
+            if m<d[i]:
+                m=d[i]
+        if m>=3:
+            return 'Three of a Kind'
+        elif m==2:
+            return "Pair"
+        return "High Card"
