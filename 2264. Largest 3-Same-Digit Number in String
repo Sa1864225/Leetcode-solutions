@@ -1,0 +1,9 @@
+class Solution:
+    def largestGoodInteger(self, num: str) -> str:
+        a=[]
+        for i in range(len(num)-2):
+            if num[i]==num[i+1] and num[i]==num[i+2]:
+                a.append(int(num[i]))
+        if len(a)!=0:
+            return str(max(a))*3
+        return ""
