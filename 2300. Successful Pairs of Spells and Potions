@@ -1,0 +1,22 @@
+class Solution:
+    def successfulPairs(self, spells: List[int], potions: List[int], success: int) -> List[int]:
+        potions.sort()
+        plen=len(potions)
+        def bSearch(spell):
+            left=0
+            right=plen
+            while(left<right):
+                mid=(left+right)//2
+                if potions[mid]*spell<success:
+                    left=mid+1
+                else:
+                    right=mid
+            return left
+        res=[]
+        for spell in spells:
+            i=bSearch(spell)
+            if i<plen:
+                res.append(plen-i)
+            else:
+                res.append(0)
+        return res
