@@ -1,0 +1,13 @@
+class Solution:
+    def partitionString(self, s: str) -> int:
+        s1=''
+        ans=1
+        for i in s:
+            if i not in s1:
+                s1+=i
+            else:
+                ans+=1
+                s1=i
+        return ans
+
+
