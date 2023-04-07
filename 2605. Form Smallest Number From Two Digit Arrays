@@ -1,0 +1,13 @@
+class Solution:
+    def minNumber(self, nums1: List[int], nums2: List[int]) -> int:
+        m=100000000
+        for i in nums1:
+            if i in nums2 and i<m:
+                m=i
+        if m!=100000000:
+            return m
+        m1=min(nums1)
+        m2=min(nums2)
+        m=int(str(m1)+str(m2))
+        n=int(str(m2)+str(m1))
+        return min(m,n)
