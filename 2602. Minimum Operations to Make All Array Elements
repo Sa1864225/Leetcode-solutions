@@ -1,0 +1,11 @@
+class Solution:
+    def minOperations(self, nums: List[int], queries: List[int]) -> List[int]:
+        nums.sort()
+        prefix_sum, n = [0], len(nums)
+        for num in nums:
+            prefix_sum.append(num + prefix_sum[-1])
+        ans = []
+        for q in queries:
+            idx = bisect.bisect(nums, q)
+            ans.append(q * idx - prefix_sum[idx] + prefix_sum[-1] - prefix_sum[idx] - q * (n - idx))    
+        return ans
