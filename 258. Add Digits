@@ -1,0 +1,12 @@
+class Solution:
+    def addDigits(self, num: int) -> int:
+        num=str(num)
+        s=0
+        while 1>0:
+            s=0
+            if len(num)<=1:
+                break
+            for i in num:
+                s+=int(i)
+            num=str(s)
+        return int(num)
