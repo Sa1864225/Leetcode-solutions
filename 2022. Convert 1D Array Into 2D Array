@@ -1,0 +1,19 @@
+class Solution:
+    def construct2DArray(self, original: List[int], m: int, n: int) -> List[List[int]]:
+        if m*n!=len(original):
+            return []
+        a=[0]*n
+        ans=[]
+        for i in range(m):
+            ans.append(a[:])
+        i,j=0,0
+        for k in original:
+            ans[i][j]=k
+            j+=1
+            if j>=n:
+                i+=1
+                j=0
+        return ans
+
+
+        
