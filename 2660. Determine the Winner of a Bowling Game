@@ -1,0 +1,26 @@
+class Solution:
+    def isWinner(self, player1: List[int], player2: List[int]) -> int:
+        s1,s2=0,0
+        c1,c2=0,0
+        for i in range(len(player1)):
+            if c1!=0:
+                s1+=player1[i]*2
+                c1-=1
+            else:
+                s1+=player1[i]
+            if player1[i]==10:
+                c1=2
+            
+            if c2!=0:
+                s2+=player2[i]*2
+                c2-=1
+            else:
+                s2+=player2[i]
+            if player2[i]==10:
+                c2=2
+        if s1>s2:
+            return 1
+        elif s1==s2:
+            return 0
+        return 2
+            
