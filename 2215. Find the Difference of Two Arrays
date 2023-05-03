@@ -1,0 +1,11 @@
+class Solution:
+    def findDifference(self, nums1: List[int], nums2: List[int]) -> List[List[int]]:
+        n1=set(nums1)
+        n1=list(n1)
+        n2=set(nums2)
+        n2=list(n2)
+        for i in set(nums1):
+            if i in nums2:
+                n1.remove(i)
+                n2.remove(i)
+        return [n1,n2]
