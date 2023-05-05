@@ -1,0 +1,17 @@
+class Solution:
+    def maxVowels(self, s: str, k: int) -> int:
+        v='aeiou'
+        m=0
+        for i in range(len(s)):
+            if s[i] not in v:
+                s=s.replace(s[i],'0')
+        c=s[:k].count('0')
+        for i in range(k,len(s)+1):
+            m=max(m,k-c)
+            if i==len(s):
+                break
+            if s[i]=='0':
+                c+=1
+            if s[i-k]=='0':
+                c-=1
+        return m
