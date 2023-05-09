@@ -1,0 +1,11 @@
+class Solution:
+    def distinctDifferenceArray(self, nums: List[int]) -> List[int]:
+        pref, suff = defaultdict(int), Counter(nums)   
+        cur = -len(suff)      
+        print(list(enumerate(nums)))
+        for i, n in enumerate(nums):       
+            pref[n]+= 1  
+            suff[n]-= 1                     
+            cur = nums[i] = cur + (pref[n] == 1) + (suff[n] == 0)   
+        return  nums                                               
+                      
