@@ -1,0 +1,13 @@
+class Solution {
+    public char nextGreatestLetter(char[] letters, char target) {
+        int ans=9999;
+        for(char c:letters)
+        {
+            if((int)c>(int)target && (int)c<ans)
+                ans=(int)c;
+        }
+        if(ans!=9999)
+        return (char)ans;
+        return letters[0];
+    }
+}
