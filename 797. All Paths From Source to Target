@@ -1,0 +1,26 @@
+class Solution {
+    vector<vector<int>> result;
+private:
+    void findPath(int node,vector<int> path,vector<vector<int>> graph)
+    {
+        if(node==graph.size()-1)
+        {
+            result.push_back(path);
+            return;
+        }
+        for(int i:graph[node])
+        {
+            path.push_back(i);
+            findPath(i,path,graph);
+            path.pop_back();
+        }
+    }
+public:
+    vector<vector<int>> allPathsSourceTarget(vector<vector<int>>& graph) {
+        vector<int> path;
+        path.push_back(0);
+        int node=0;
+        findPath(node,path,graph);
+        return result;
+    }
+};
