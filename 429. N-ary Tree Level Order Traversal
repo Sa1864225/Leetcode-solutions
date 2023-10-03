@@ -1,0 +1,22 @@
+#DFS1
+class Solution:
+    def dfs(self,root,h,map):
+        if root==None:
+            return 
+        if h not in map:
+            map[h]=[root.val]
+        else:
+            map[h].append(root.val)
+
+        for i in root.children:
+            self.dfs(i,h+1,map)
+
+    def levelOrder(self, root: 'Node') -> List[List[int]]:
+        if root==None:
+            return []
+        map={}
+        self.dfs(root,0,map)
+        ans=[]
+        for i in map:
+            ans.append(map[i])
+        return ans
