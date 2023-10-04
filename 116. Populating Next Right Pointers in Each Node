@@ -1,0 +1,20 @@
+
+class Solution:
+    def dfs(self,root,m,h):
+        if not root:
+            return 
+        if h not in m:
+            m[h]=[root]
+        else:
+            m[h][-1].next=root
+            m[h].append(root)
+
+        self.dfs(root.left,m,h+1)
+        self.dfs(root.right,m,h+1)
+
+    def connect(self, root: 'Optional[Node]') -> 'Optional[Node]':
+        if not root:
+            return 
+        m={}
+        self.dfs(root,m,0)
+        return root
