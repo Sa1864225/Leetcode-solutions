@@ -1,0 +1,24 @@
+
+class Solution1 {
+public:
+    vector<int> largestValues(TreeNode* root) {
+        vector<int> ans;
+        search(root,0,ans);
+        return ans;
+    }
+
+private:
+    void search(TreeNode* root,int h,vector<int>& ans)
+    {
+        if(root==nullptr)
+        return;
+        if(ans.size()<h+1)
+        {
+            ans.push_back(root->val);
+        }
+        else
+        ans[h]=max(root->val,ans[h]);
+        search(root->left,h+1,ans);
+        search(root->right,h+1,ans);
+    }
+};
